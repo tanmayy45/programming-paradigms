@@ -1,0 +1,80 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: red};
+     font-family: arial, helvetica, sans-serif:
+     }
+p    {color: red;}
+</style>
+<title>
+EVENT DRIVEN PROGRAMMING
+</title>
+</head>
+<body>
+<br>
+
+<h1><b style="margin-left:400px; margin-top:-15px">EVENT DRIVEN PROGRAMMING PARADIGM</b></h1>
+<br>
+<br>
+<hr>
+
+<h2><u>Definition</u></h2>
+
+<h3>
+In computer programming, event-driven programming is a programming paradigm in which the flow of the program is determined by events such as user actions (mouse clicks, key presses), sensor outputs, or messages from other programs or threads. Event-driven programming is the dominant paradigm used in graphical user interfaces and other applications (e.g., JavaScript web applications) that are centered on performing certain actions in response to user input. This is also true of programming for device drivers (e.g., P in USB device driver stacks[1]).
+
+In an event-driven application, there is generally a main loop that listens for events, and then triggers a callback function when one of those events is detected. In embedded systems, the same may be achieved using hardware interrupts instead of a constantly running main loop. Event-driven programs can be written in any programming language, although the task is easier in languages that provide high-level abstractions, such as await and closures.
+</h3>
+
+
+<hr>
+
+<h2><u>
+Common uses
+
+</u></h2>
+
+
+<h3>
+Most existing GUI development tools and architectures rely on event-driven programming.[2] The Java AWT framework processes all UI changes on a single thread, called the Event dispatching thread. Similarly, all UI updates in the Java framework JavaFX occur on the JavaFX Application Thread.[3]
+
+In addition, systems such as Node.js are also event-driven.[
+</h3>
+
+
+
+
+
+<hr>
+
+
+<h2><u>Criticism
+</u></h2>
+
+The design of those programs which rely on event-action model has been criticised, and it has been suggested that the event-action model leads programmers to create error-prone, difficult to extend and excessively complex application code.[2] Table-driven state machines have been advocated as a viable alternative.[5] On the other hand, table-driven state machines themselves suffer from significant weaknesses including state explosion phenomena.[6] A solution for this is to use Petri nets
+</h3>
+<hr>
+
+<h2><u>Example</u></h2>
+
+<h3>
+
+
+var http = require('http');
+
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World!');
+}).listen(8080);
+
+
+
+
+</h3>
+
+
+
+
+</body>
+</html>

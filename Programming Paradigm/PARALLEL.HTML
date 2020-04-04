@@ -1,0 +1,120 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: red};
+     font-family: arial, helvetica, sans-serif:
+     }
+p    {color: red;}
+</style>
+<title>
+PARALLEL PROGRAMMING
+</title>
+</head>
+<body>
+<br>
+
+<h1><b style="margin-left:400px; margin-top:-15px">PARALLEL PROGRAMMING PARADIGM</b></h1>
+<br>
+<br>
+<hr>
+
+<h2><u>Definition</u></h2>
+
+<h3>
+In computing, a parallel programming model is an abstraction of parallel computer architecture, with which it is convenient to express algorithms and their composition in programs. The value of a programming model can be judged on its generality: how well a range of different problems can be expressed for a variety of different architectures, and its performance: how efficiently the compiled programs can execute.[1] The implementation of a parallel programming model can take the form of a library invoked from a sequential language, as an extension to an existing language, or as an entirely new language.
+
+Consensus around a particular programming model is important because it leads to different parallel computers being built with support for the model, thereby facilitating portability of software. In this sense, programming models are referred to as bridging between hardware and software.
+</h3>
+
+
+<hr>
+
+<h2><u>
+Classification of parallel programming models
+
+</u></h2>
+
+
+<h3>
+Process interaction
+Process interaction relates to the mechanisms by which parallel processes are able to communicate with each other. The most common forms of interaction are shared memory and message passing, but interaction can also be implicit (invisible to the programmer).
+
+Shared memory
+Main article: Shared memory (interprocess communication)
+Shared memory is an efficient means of passing data between processes. In a shared-memory model, parallel processes share a global address space that they read and write to asynchronously. Asynchronous concurrent access can lead to race conditions, and mechanisms such as locks, semaphores and monitors can be used to avoid these. Conventional multi-core processors directly support shared memory, which many parallel programming languages and libraries, such as Cilk, OpenMP and Threading Building Blocks, are designed to exploit.
+
+Message passing
+Main article: Message passing
+In a message-passing model, parallel processes exchange data through passing messages to one another. These communications can be asynchronous, where a message can be sent before the receiver is ready, or synchronous, where the receiver must be ready. The Communicating sequential processes (CSP) formalisation of message passing uses synchronous communication channels to connect processes, and led to important languages such as Occam, Limbo and Go. In contrast, the actor model uses asynchronous message passing and has been employed in the design of languages such as D, Scala and SALSA.
+
+Implicit interaction
+Main article: Implicit parallelism
+In an implicit model, no process interaction is visible to the programmer and instead the compiler and/or runtime is responsible for performing it. Two examples of implicit parallelism are with domain-specific languages where the concurrency within high-level operations is prescribed, and with functional programming languages because the absence of side-effects allows non-dependent functions to be executed in parallel.[6] However, this kind of parallelism is difficult to manage[7] and functional languages such as Concurrent Haskell and Concurrent ML provide features to manage parallelism explicitly.
+
+Problem decomposition
+A parallel program is composed of simultaneously executing processes. Problem decomposition relates to the way in which the constituent processes are formulated.[8][9]
+
+Task parallelism
+Main article: Task parallelism
+A task-parallel model focuses on processes, or threads of execution. These processes will often be behaviourally distinct, which emphasises the need for communication. Task parallelism is a natural way to express message-passing communication. In Flynn's taxonomy, task parallelism is usually classified as MIMD/MPMD or MISD.
+
+Data parallelism
+Main article: Data parallelism
+A data-parallel model focuses on performing operations on a data set, typically a regularly structured array. A set of tasks will operate on this data, but independently on disjoint partitions. In Flynn's taxonomy, data parallelism is usually classified as MIMD/SPMD or SIMD.
+
+Implicit parallelism
+Main article: Implicit parallelism
+As with implicit process interaction, an implicit model of parallelism reveals nothing to the programmer as the compiler, the runtime or the hardware is responsible. For example, in compilers, automatic parallelization is the process of converting sequential code into parallel code, and in computer architecture, superscalar execution is a mechanism whereby instruction-level parallelism is exploited to perform operations in parallel.
+
+
+</h3>
+
+
+
+
+
+<hr>
+
+
+<h2><u>Terminology
+
+</u></h2>
+<h3>
+Parallel programming models are closely related to models of computation. A model of parallel computation is an abstraction used to analyze the cost of computational processes, but it does not necessarily need to be practical, in that it can be implemented efficiently in hardware and/or software. A programming model, in contrast, does specifically imply the practical considerations of hardware and software implementation.[10]
+
+A parallel programming language may be based on one or a combination of programming models. For example, High Performance Fortran is based on shared-memory interactions and data-parallel problem decomposition, and Go provides mechanism for shared-memory and message-passing interaction.
+</h3>
+<hr>
+
+<h2><u>Example</u></h2>
+
+<h3>
+
+
+signal input_stream : input;
+signal clk :std_logic;
+signal parity :bit ;
+begin
+U1: Parity_Generator1
+port map(
+input_stream,
+clk,
+parity => parity
+);
+input1 : process (clk)
+begin
+if clk <= 'U' then clk <= '0' after 1 ns;
+else clk <= not clk after 1 ns;
+end if;
+end process;
+
+
+
+</h3>
+
+
+
+
+</body>
+</html>

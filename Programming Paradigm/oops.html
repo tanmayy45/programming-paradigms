@@ -1,0 +1,129 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: red};
+     font-family: arial, helvetica, sans-serif:
+     }
+p    {color: red;}
+</style>
+<title>
+OBJECT ORIENTED PROGRAMMING
+</title>
+</head>
+<body>
+<br>
+
+<h1><b style="margin-left:400px; margin-top:-15px">OBJECT ORIENTED PROGRAMMING PARADIGM</b></h1>
+<br>
+<br>
+<hr>
+
+<h2><u>Definition</u></h2>
+
+<h3>
+Object-oriented programming (OOP) is a programming paradigm based on the concept of "objects", which can contain data, in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods). A feature of objects is an object's procedures that can access and often modify the data fields of the object with which they are associated (objects have a notion of "this" or "self"). In OOP, computer programs are designed by making them out of objects that interact with one another.[1][2] OOP languages are diverse, but the most popular ones are class-based, meaning that objects are instances of classes, which also determine their types.
+</h3>
+
+
+<hr>
+
+<h2><u>
+OOP languages
+</u></h2>
+
+
+<h3>
+Languages called "pure" OO languages, because everything in them is treated consistently as an object, from primitives such as characters and punctuation, all the way up to whole classes, prototypes, blocks, modules, etc. They were designed specifically to facilitate, even enforce, OO methods. Examples: Python, Ruby, Scala, Smalltalk, Eiffel, Emerald,[26] JADE, Self.
+Languages designed mainly for OO programming, but with some procedural elements. Examples: Java, C++, C#, Delphi/Object Pascal, VB.NET.
+Languages that are historically procedural languages, but have been extended with some OO features. Examples: PHP, Perl, Visual Basic (derived from BASIC), MATLAB, COBOL 2002, Fortran 2003, ABAP, Ada 95, Pascal.
+Languages with most of the features of objects (classes, methods, inheritance), but in a distinctly original form. Examples: Oberon (Oberon-1 or Oberon-2).
+Languages with abstract data type support which may be used to resemble OO programming, but without all features of object-orientation. This includes object-based and prototype-based languages. Examples: JavaScript, Lua, Modula-2, CLU.
+</h3>
+
+
+
+
+
+<hr>
+
+
+<h2><u>Feauters
+</u></h2>
+
+<h3>
+Variables that can store information formatted in a small number of built-in data types like integers and alphanumeric characters. This may include data structures like strings, lists, and hash tables that are either built-in or result from combining variables using memory pointers.
+Procedures – also known as functions, methods, routines, or subroutines – that take input, generate output, and manipulate data. Modern languages include structured programming constructs like loops and conditionals.
+</h3>
+<h3>
+Classes – the definitions for the data format and available procedures for a given type or class of object; may also contain data and procedures (known as class methods) themselves, i.e. classes contain the data members and member functions
+Objects – instances of classes
+</h3>
+<h3>
+Encapsulation is an object-oriented programming concept that binds together the data and functions that manipulate the data, and that keeps both safe from outside interference and misuse. Data encapsulation led to the important OOP concept of data hiding.
+</h3>
+<h3>
+Objects can contain other objects in their instance variables; this is known as object composition. For example, an object in the Employee class might contain (either directly or through a pointer) an object in the Address class, in addition to its own instance variables like "first_name" and "position". Object composition is used to represent "has-a" relationships: every employee has an address, so every Employee object has access to a place to store an Address object (either directly embedded within itself, or at a separate location addressed via a pointer).
+
+Languages that support classes almost always support inheritance. This allows classes to be arranged in a hierarchy that represents "is-a-type-of" relationships. For example, class Employee might inherit from class Person. All the data and methods available to the parent class also appear in the child class with the same names. For example, class Person might define variables "first_name" and "last_name" with method "make_full_name()". These will also be available in class Employee, which might add the variables "position" and "salary". This technique allows easy re-use of the same procedures and data definitions, in addition to potentially mirroring real-world relationships in an intuitive way. Rather than utilizing database tables and programming subroutines, the developer utilizes objects the user may be more familiar with: objects from their application domain.[9]
+
+Subclasses can override the methods defined by superclasses. Multiple inheritance is allowed in some languages, though this can make resolving overrides complicated. Some languages have special support for mixins, though in any language with multiple inheritance, a mixin is simply a class that does not represent an is-a-type-of relationship. Mixins are typically used to add the same methods to multiple classes. For example, class UnicodeConversionMixin might provide a method unicode_to_ascii() when included in class FileReader and class WebPageScraper, which don't share a common parent.
+
+Abstract classes cannot be instantiated into objects; they exist only for the purpose of inheritance into other "concrete" classes which can be instantiated. In Java, the final keyword can be used to prevent a class from being subclassed.
+
+The doctrine of composition over inheritance advocates implementing has-a relationships using composition instead of inheritance. For example, instead of inheriting from class Person, class Employee could give each Employee object an internal Person object, which it then has the opportunity to hide from external code even if class Person has many public attributes or methods. Some languages, like Go do not support inheritance at all.
+
+The "open/closed principle" advocates that classes and functions "should be open for extension, but closed for modification".
+
+Delegation is another language feature that can be used as an alternative to inheritance.
+</h3>
+<hr>
+
+<h2><u>Example</u></h2>
+
+<h3>
+
+
+// C++ program to demonstrate 
+// accessing of data members 
+
+#include <bits/stdc++.h> 
+using namespace std; 
+class Geeks 
+{ 
+	// Access specifier 
+	public: 
+
+	// Data Members 
+	string geekname; 
+
+	// Member Functions() 
+	void printname() 
+	{ 
+	cout << "Geekname is: " << geekname; 
+	} 
+}; 
+
+int main() { 
+
+	// Declare an object of class geeks 
+	Geeks obj1; 
+
+	// accessing data member 
+	obj1.geekname = "Abhi"; 
+
+	// accessing member function 
+	obj1.printname(); 
+	return 0; 
+} 
+
+
+
+
+</h3>
+
+
+
+
+</body>
+</html>

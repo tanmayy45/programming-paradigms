@@ -1,0 +1,119 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: red};
+     font-family: arial, helvetica, sans-serif:
+     }
+p    {color: red;}
+</style>
+<title>
+DEPENDENT PROGRAMMING
+</title>
+</head>
+<body>
+<br>
+
+<h1><b style="margin-left:400px; margin-top:-15px">DEPENDENT PROGRAMMING PARADIGM</b></h1>
+<br>
+<br>
+<hr>
+
+<h2><u>Definition</u></h2>
+
+<h3>
+In computer science and logic, a dependent type is a type whose definition depends on a value. It is an overlapping feature of type theory and type systems. In intuitionistic type theory, dependent types are used to encode logic's quantifiers like "for all" and "there exists". In functional programming languages like Agda, ATS, Coq, F*, Epigram, and Idris, dependent types may help reduce bugs by enabling the programmer to assign types that further restrain the set of possible implementations.[citation needed]
+
+Two common examples of dependent types are dependent functions and dependent pairs. The return type of a dependent function may depend on the value (not just type) of one of its arguments. For instance, a function that takes a positive integer {\displaystyle n}n may return an array of length {\displaystyle n}n, where the array length is part of the type of the array. (Note that this is different from polymorphism and generic programming, both of which include the type as an argument.) A dependent pair may have a second value of which the type depends on the first value. Sticking with the array example, a dependent pair may be used to pair an array with its length in a type-safe way.
+
+Dependent types add complexity to a type system. Deciding the equality of dependent types in a program may require computations. If arbitrary values are allowed in dependent types, then deciding type equality may involve deciding whether two arbitrary programs produce the same result; hence type checking may become undecidable.</h3>
+
+
+<hr>
+
+<h2><u>
+History</u></h2>
+
+
+<h3>
+Dependent types were created to deepen the connection between programming and logic.[clarification needed]
+
+In 1934, Haskell Curry noticed that the types used in typed lambda calculus, and in its combinatory logic counterpart, followed the same pattern as axioms in propositional logic. Going further, for every proof in the logic, there was a matching function (term) in the programming language. One of Curry's examples was the correspondence between simply typed lambda calculus and intuitionistic logic.[1]
+
+Predicate logic is an extension of propositional logic, adding quantifiers. Howard and de Bruijn extended lambda calculus to match this more powerful logic by creating types for dependent functions, which correspond to "for all", and dependent pairs, which correspond to "there exists".[2]
+
+(Because of this and other work by Howard, propositions-as-types is known as the Curry–Howard correspondence.)</h3>
+
+
+
+
+
+<hr>
+
+
+<h2><u>Formal definition
+
+</u></h2>
+
+<h3>
+to each term {\displaystyle a:A}a:A a type {\displaystyle B(a):{\mathcal {U}}}B(a):\mathcal{U}. We say that the type B(a) varies with a.
+
+A function whose type of return value varies with its argument (i.e. there is no fixed codomain) is a dependent function and the type of this function is called dependent product type, pi-type or dependent function type.[3] For this example, the dependent function type is typically written as
+
+{\displaystyle \prod _{x:A}B(x)}{\displaystyle \prod _{x:A}B(x)}
+or
+{\displaystyle \prod \nolimits _{x:A}B(x).}{\displaystyle \prod \nolimits _{x:A}B(x).}
+If {\displaystyle B:A\to {\mathcal {U}}}B:A\to\mathcal{U} is a constant function, the corresponding dependent product type is equivalent to an ordinary function type. That is, {\textstyle \prod _{x:A}B}{\textstyle \prod _{x:A}B} is judgmentally equal to {\displaystyle A\to B}A\to B when B does not depend on x.
+
+The name 'pi-type' comes from the idea that these may be viewed as a Cartesian product of types. Pi-types can also be understood as models of universal quantifiers.
+
+For example, if we write {\displaystyle \operatorname {Vec} (\mathbb {R} ,n)}{\displaystyle \operatorname {Vec} (\mathbb {R} ,n)} for n-tuples of real numbers, then {\textstyle \prod _{n:\mathbb {N} }\operatorname {Vec} (\mathbb {R} ,n)}{\textstyle \prod _{n:\mathbb {N} }\operatorname {Vec} (\mathbb {R} ,n)} would be the type of a function which, given a natural number n, returns a tuple of real numbers of size n. The usual function space arises as a special case when the range type does not actually depend on the input. E.g. {\textstyle \prod _{n:\mathbb {N} }{\mathbb {R} }}{\textstyle \prod _{n:\mathbb {N} }{\mathbb {R} }} is the type of functions from natural numbers to the real numbers, which is written as {\displaystyle \mathbb {N} \to \mathbb {R} }{\displaystyle \mathbb {N} \to \mathbb {R} } in typed lambda calculus.
+
+{\displaystyle \Sigma }\Sigma  type
+The dual of the dependent product type is the dependent pair type, dependent sum type, sigma-type, or (confusingly) dependent product type.[3] Sigma-types can also be understood as existential quantifiers. Continuing the above example, if, in the universe of types {\displaystyle {\mathcal {U}}}{\mathcal {U}}, there is a type {\displaystyle A:{\mathcal {U}}}A:\mathcal{U} and a family of types {\displaystyle B:A\to {\mathcal {U}}}B:A\to\mathcal{U}, then there is a dependent pair type
+
+{\displaystyle \sum _{x:A}B(x).}{\displaystyle \sum _{x:A}B(x).}
+The dependent pair type captures the idea of an ordered pair where the type of the second term is dependent on the value of the first. If
+
+{\displaystyle (a,b):\sum _{x:A}B(x),}{\displaystyle (a,b):\sum _{x:A}B(x),}
+then {\displaystyle a:A}a:A and {\displaystyle b:B(a)}b:B(a). If B is a constant function, then the dependent pair type becomes (is judgementally equal to) the product type, that is, an ordinary Cartesian product {\displaystyle A\times B}A\times B.
+Example as existential quantification
+Let {\displaystyle A:{\mathcal {U}}}A:\mathcal{U} be some type, and let {\displaystyle B:A\to {\mathcal {U}}}B:A\to\mathcal{U}. By the Curry–Howard correspondence, B can be interpreted as a logical predicate on terms of A. For a given {\displaystyle a:A}a:A, whether the type B(a) is inhabited indicates whether a satisfies this predicate. The correspondence can be extended to existential quantification and dependent pairs: the proposition {\displaystyle \exists {a}{\in }A\,B(a)}{\displaystyle \exists {a}{\in }A\,B(a)} is true if and only if the type {\textstyle \sum _{a:A}B(a)}{\textstyle \sum _{a:A}B(a)} is inhabited.
+
+For example, {\displaystyle m:\mathbb {N} }{\displaystyle m:\mathbb {N} } is less than or equal to {\displaystyle n:\mathbb {N} }{\displaystyle n:\mathbb {N} } if and only if there exists another natural number {\displaystyle k:\mathbb {N} }{\displaystyle k:\mathbb {N} } such that m + k = n. In logic, this statement is codified by existential quantification:
+
+{\displaystyle m\leq n\iff \exists {k}{\in }\mathbb {N} \,m+k=n.}{\displaystyle m\leq n\iff \exists {k}{\in }\mathbb {N} \,m+k=n.}
+This proposition corresponds to the dependent pair type:
+{\displaystyle \sum _{k:\mathbb {N} }m+k=n.}{\displaystyle \sum _{k:\mathbb {N} }m+k=n.}
+That is, a proof of the statement that m is less than n is a pair that contains both a positive number k, which is the difference between m and n, and a proof of the equality m + k = n.
+Systems of the lambda cube
+Henk Barendregt developed the lambda cube as a means of classifying type systems along three axes. The eight corners of the resulting cube-shaped diagram each correspond to a type system, with simply typed lambda calculus in the least expressive corner, and calculus of constructions in the most expressive. The three axes of the cube correspond to three different augmentations of the simply typed lambda calculus: the addition of dependent types, the addition of polymorphism, and the addition of higher kinded type constructors (functions from types to types, for example). The lambda cube is generalized further by pure type systems.
+
+First order dependent type theory
+The system {\displaystyle \lambda \Pi }\lambda \Pi of pure first order dependent types, corresponding to the logical framework LF, is obtained by generalising the function space type of the simply typed lambda calculus to the dependent product type.
+
+Second order dependent type theory
+The system {\displaystyle \lambda \Pi 2}\lambda \Pi 2 of second order dependent types is obtained from {\displaystyle \lambda \Pi }\lambda \Pi by allowing quantification over type constructors. In this theory the dependent product operator subsumes both the {\displaystyle \to }\to  operator of simply typed lambda calculus and the {\displaystyle \forall }\forall  binder of System F.
+
+Higher order dependently typed polymorphic lambda calculus
+The higher order system {\displaystyle \lambda \Pi \omega }\lambda \Pi \omega  extends {\displaystyle \lambda \Pi 2}\lambda \Pi 2 to all four forms of abstraction from the lambda cube: functions from terms to terms, types to types, terms to types and types to terms. The system corresponds to the calculus of constructions whose derivative, the calculus of inductive constructions is the underlying system of the Coq proof assistant.</h3>
+<hr>
+
+<h2><u>Example</u></h2>
+
+<h3>
+
+
+  append : Vect n elem -> Vect m elem -> Vect (n + m) elem  
+
+
+
+
+
+</h3>
+
+
+
+
+</body>
+</html>

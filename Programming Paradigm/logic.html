@@ -1,0 +1,126 @@
+<html>
+<head>
+<style>
+body {background-color: powderblue;}
+h1   {color: red};
+     font-family: arial, helvetica, sans-serif:
+     }
+p    {color: red;}
+</style>
+<title>
+LOGICAL  PROGRAMMING
+</title>
+</head>
+<body>
+<br>
+
+<h1><b style="margin-left:400px; margin-top:-15px">lOGICAL  PROGRAMMING PARADIGM</b></h1>
+<br>
+<br>
+<hr>
+
+<h2><u>Definition</u></h2>
+
+<h3>
+Logic programming is a programming paradigm which is largely based on formal logic. Any program written in a logic programming language is a set of sentences in logical form, expressing facts and rules about some problem domain. Major logic programming language families include Prolog, answer set programming (ASP) and Datalog. In all of these languages, rules are written in the form of clauses:
+
+H :- B1, …, Bn.
+and are read declaratively as logical implications:
+
+H if B1 and … and Bn.
+H is called the head of the rule and B1, ..., Bn is called the body. Facts are rules that have no body, and are written in the simplified form:
+
+H.
+In the simplest case in which H, B1, ..., Bn are all atomic formulae, these clauses are called definite clauses or Horn clauses. However, there are many extensions of this simple case, the most important one being the case in which conditions in the body of a clause can also be negations of atomic formulas. Logic programming languages that include this extension have the knowledge representation capabilities of a non-monotonic logic.
+
+In ASP and Datalog, logic programs have only a declarative reading, and their execution is performed by means of a proof procedure or model generator whose behaviour is not meant to be controlled by the programmer. However, in the Prolog family of languages, logic programs also have a procedural interpretation as goal-reduction procedures:
+
+to solve H, solve B1, and ... and solve Bn.
+Consider the following clause as an example:
+
+fallible(X) :- human(X).
+based on an example used by Terry Winograd[1] to illustrate the programming language Planner. As a clause in a logic program, it can be used both as a procedure to test whether X is fallible by testing whether X is human, and as a procedure to find an X which is fallible by finding an X which is human. Even facts have a procedural interpretation. For example, the clause:
+
+human(socrates).
+can be used both as a procedure to show that socrates is human, and as a procedure to find an X that is human by "assigning" socrates to X.
+
+The declarative reading of logic programs can be used by a programmer to verify their correctness. Moreover, logic-based program transformation techniques can also be used to transform logic programs into logically equivalent programs that are more efficient. In the Prolog family of logic programming languages, the programmer can also use the known problem-solving behaviour of the execution mechanism to improve the efficiency of programs.
+</h3>
+
+
+<hr>
+
+<h2><u>
+Concepts
+</u></h2>
+
+
+<h3>
+Logic and control
+Main article: Declarative programming
+Logic programming can be viewed as controlled deduction. An important concept in logic programming is the separation of programs into their logic component and their control component. With pure logic programming languages, the logic component alone determines the solutions produced. The control component can be varied to provide alternative ways of executing a logic program. This notion is captured by the slogan
+
+Algorithm = Logic + Control
+where "Logic" represents a logic program and "Control" represents different theorem-proving strategies.[10]
+
+Problem solving
+In the simplified, propositional case in which a logic program and a top-level atomic goal contain no variables, backward reasoning determines an and-or tree, which constitutes the search space for solving the goal. The top-level goal is the root of the tree. Given any node in the tree and any clause whose head matches the node, there exists a set of child nodes corresponding to the sub-goals in the body of the clause. These child nodes are grouped together by an "and". The alternative sets of children corresponding to alternative ways of solving the node are grouped together by an "or".
+
+Any search strategy can be used to search this space. Prolog uses a sequential, last-in-first-out, backtracking strategy, in which only one alternative and one sub-goal is considered at a time. Other search strategies, such as parallel search, intelligent backtracking, or best-first search to find an optimal solution, are also possible.
+
+In the more general case, where sub-goals share variables, other strategies can be used, such as choosing the subgoal that is most highly instantiated or that is sufficiently instantiated so that only one procedure applies. Such strategies are used, for example, in concurrent logic programming.
+
+Negation as failure
+Main article: Negation as failure
+For most practical applications, as well as for applications that require non-monotonic reasoning in artificial intelligence, Horn clause logic programs need to be extended to normal logic programs, with negative conditions. A clause in a normal logic program has the form:
+
+H :- A1, …, An, not B1, …, not Bn.
+and is read declaratively as a logical implication:
+
+H if A1 and … and An and not B1 and … and not Bn.
+where H and all the Ai and Bi are atomic formulas. The negation in the negative literals not Bi is commonly referred to as "negation as failure", because in most implementations, a negative condition not Bi is shown to hold by showing that the positive condition Bi fails to hold
+</h3>
+
+
+
+
+
+<hr>
+
+
+<h2><u>Variants and extensions
+
+</u></h2>
+
+<h3>
+he programming language Prolog was developed in 1972 by Alain Colmerauer. It emerged from a collaboration between Colmerauer in Marseille and Robert Kowalski in Edinburgh. Colmerauer was working on natural language understanding, using logic to represent semantics and using resolution for question-answering. During the summer of 1971, Colmerauer and Kowalski discovered that the clausal form of logic could be used to represent formal grammars and that resolution theorem provers could be used for parsing. They observed that some theorem provers, like hyper-resolution, behave as bottom-up parsers and others, like SL-resolution (1971), behave as top-down parsers.
+
+It was in the following summer of 1972, that Kowalski, again working with Colmerauer, developed the procedural interpretation of implications. This dual declarative/procedural interpretation later became formalised in the Prolog notation
+
+H :- B1, …, Bn.
+which can be read (and used) both declaratively and procedurally. It also became clear that such clauses could be restricted to definite clauses or Horn clauses, where H, B1, ..., Bn are all atomic predicate logic formulae, and that SL-resolution could be restricted (and generalised) to LUSH or SLD-resolution. Kowalski's procedural interpretation and LUSH were described in a 1973 memo, published in 1974.[6]
+
+Colmerauer, with Philippe Roussel, used this dual interpretation of clauses as the basis of Prolog, which was implemented in the summer and autumn of 1972. The first Prolog program, also written in 1972 and implemented in Marseille, was a French question-answering system. The use of Prolog as a practical programming language was given great momentum by the development of a compiler by David Warren in Edinburgh in 1977. Experiments demonstrated that Edinburgh Prolog could compete with the processing speed of other symbolic programming languages such as Lisp. Edinburgh Prolog became the de facto standard and strongly influenced the definition of ISO standard Prolog.
+</h3>
+<hr>
+
+<h2><u>Example</u></h2>
+
+<h3>
+
+
+canfly(X) :- bird(X), not abnormal(X).
+abnormal(X) :-  wounded(X).
+bird(john).
+bird(mary).
+wounded(john).
+
+
+
+</h3>
+
+
+
+
+</body>
+</html>
